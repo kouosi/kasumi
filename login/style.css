@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+:root {
+    --main-color: #2f8a8f;
+    --bg-color: #1f1f1a;
+    --text-color: #feefef;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-color);
+}
+
+section {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+section .signinup {
+    position: absolute;
+    width: 400px;
+    background: #222;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0,0,0,9);
+}
+
+section .signinup .content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+}
+
+section .signinup .content h2 {
+    font-size: 2em;
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+
+section .signinup .content .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+section .signinup .content .form .inputBox {
+    position: relative;
+    width: 100%;
+}
+
+section .signinup .content .form .inputBox input {
+    position: relative;
+    width: 100%;
+    background: #333;
+    border: none;
+    outline: none;
+    padding: 10px 7.5px;
+    border-radius: 4px;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.signinup .content .form .links {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.signinup .content .form .links a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.signinup .content .form .links a:nth-child(2) {
+  color: var(--main-color);
+  font-weight: 600;
+}
+
+.signinup .content .form .inputBox input[type="submit"] {
+  padding: 10px;
+  background: var(--main-color);
+  color: var(--bg-color);
+  font-weight: 600;
+  font-size: 1.35em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+input[type="submit"]:active {
+  opacity: 0.6;
+}
+#signup {
+    display: none;
+}
