@@ -1,0 +1,26 @@
+[
+    {
+        "username": "johndoe",
+        "is_active": true,
+        "name": "John Doe",
+        "last_seen_time": "5m",
+        "is_last_message_seen": true,
+        "last_message_sent": "Let's meet tomorrow!"
+    },
+    {
+        "username": "janedoe",
+        "is_active": false,
+        "name": "Jane Doe",
+        "last_seen_time": "3d",
+        "is_last_message_seen": false,
+        "last_message_sent": "Please check the document."
+    },
+    {
+        "username": "michael123",
+        "is_active": true,
+        "name": "Michael Smith",
+        "last_seen_time": "30m",
+        "is_last_message_seen": true,
+        "last_message_sent": "Great job on the project!"
+    }
+]

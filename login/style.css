@@ -7,7 +7,7 @@
 }
 
 :root {
-    --main-color: #2f8a8f;
+    --main-color: #00f2ff;
     --bg-color: #1f1f1a;
     --text-color: #feefef;
 }
@@ -73,7 +73,12 @@ section .signinup .content .form .inputBox {
     width: 100%;
 }
 
+section .signinup .content .form .inputBox input[type="submit"]:hover {
+    background-color: red;
+}
+
 section .signinup .content .form .inputBox input {
+    transition: .2s;
     position: relative;
     width: 100%;
     background: #333;
@@ -116,6 +121,7 @@ section .signinup .content .form .inputBox input {
 input[type="submit"]:active {
   opacity: 0.6;
 }
+
 #signup {
     display: none;
 }
