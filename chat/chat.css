@@ -7,9 +7,9 @@
 }
 
 :root {
-    --bg-color: #222222;
+    --bg-color: #161616;
     --bg1-color: #333333;
-    --bg2-color: #444444;
+    --bg2-color: #3f3c3c;
     --fg-color: #eeeeee;
 }
 
@@ -82,7 +82,7 @@ body {
     background: green;
     padding: 0 .5rem;
     margin-left: .5rem;
-    font-size: .6rem;
+    font-size: .75rem;
     display: block;
     border-radius: 1rem;
 }
@@ -124,29 +124,31 @@ body {
 
 .mainchat .chat-window {
     padding: 1rem;
-    background: red;
+    /* background: linear-gradient(rgb(255, 0, 221), rgb(224, 125, 12)); */
+    background-color: #F8FFE5;
     margin-bottom: 4rem;
     padding-top: 5rem;
 }
 
 .mainchat .chat-window .chat-text {
     width: max-content;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     max-width: 75%;
     padding: .5rem 1rem;
 }
 .mainchat .chat-window .chat-left {
-    background: blue;
+    background: #1B9AAA;
     border-radius: 1.5rem 1.5rem 1.5rem 0;
     margin-bottom: .5rem;
 }
 .mainchat .chat-window .chat-right {
-    background: green;
+    background: #216869;
     border-radius: 1.5rem 1.5rem 0 1.5rem;
     margin-bottom: .5rem;
-      margin: 0 0 .5rem auto;
+    margin: 0 0 .5rem auto;
 }
 .mainchat .chat-title {
-    background: #339933;
+    background: #06926d;
     display: flex;
     padding: .4rem 1rem;
     position: fixed;
