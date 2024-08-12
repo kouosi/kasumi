@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Our Sidebar window -->
+        <div class="sidebar">
+            <div class="top">
+                <!-- Our Main profile for settings -->
+                <div class="profile-settings" id="my-profile">
+                    <!-- profile settings example -->
+                    <!-- <div class="profile"> -->
+                    <!--     <img src="profile.jpg" alt="profile"> -->
+                    <!-- </div> -->
+                    <!-- <div class="info"> -->
+                    <!--     <div class="name">Kouosi Tsuamine</div> -->
+                    <!--     <div class="status">Busy</div> -->
+                    <!-- </div> -->
+                </div>
+
+                <!-- Our Search bar -->
+                <div class="search">
+                    <i class="fa fa-search"></i>
+                    <input type="search" placeholder="Search...">
+                    <!--TODO: Implement -->
+                </div>
+            </div>
+
+            <!-- Our Contact List -->
+            <div class="contact-list" id="contact-list">
+                <!-- contact-info example -->
+                <!-- <div class="contact-info selected online"> -->
+                <!--     <div class="profile"><img src="profile.png" alt="profile"></div> -->
+                <!--     <div class="info"> -->
+                <!--         <div class="name">Kouosi Tsuamine</div> -->
+                <!--         <div class="last-message"> -->
+                <!--             <div class="text">last message</div> -->
+                <!--             <div class="time">13h</div> -->
+                <!--         </div> -->
+                <!--     </div> -->
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Our Main Chat window -->
+        <div class="mainchat" id="mainchat-window">
+            <!-- Chat window title -->
+            <div class="chat-title online" id="chat-title"></div>
+            <!-- Example chat Title -->
+            <!-- <div class="chat-title online" id="chat-title"> -->
+            <!--     <div class="profile"><img src="username.jpg" alt="profile"></div> -->
+            <!--     <div class="title">User name -->
+            <!--         <div class="last-active">active time</div> -->
+            <!--     </div> -->
+            <!-- </div> -->
+
+            <!-- Chat bubble window-->
+            <div class="chat-window" id="chat-content"></div>
+            <!-- Example bubble window-->
+            <!-- <div class="chat-window" id="chat-content"> -->
+            <!-- text bubble example -->
+            <!-- <div class="chat-text chat-left">I am sender</div> -->
+            <!-- <div class="chat-text chat-right">I am receiver</div> -->
+            <!-- </div> -->
+
+            <!-- Chat write box -->
+            <div class="chat-write">
+                <input class="write-message" type="text" placeholder="Write message here.">
+                <i class="fa fa-file"></i>
+                <i class="fa fa-image"></i>
+                <i class="fa fa-thumbs-up"></i>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+
+</html>
