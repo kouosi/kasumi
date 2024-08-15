@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+</head>
+
+<body>
+    <section id="signup" class="auth-form">
+        <h2>Sign UP</h2>
+        <div class="form">
+            <div class="input-box">
+                <input type="text" id="form-name" placeholder="Full Name" required>
+            </div>
+            <div class="input-box">
+                <input type="text" id="form-username" placeholder="Username" required>
+            </div>
+            <div class="input-box">
+                <input type="email" id="form-email" placeholder="Email Address" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="form-password" placeholder="Password" required>
+            </div>
+            <div id="form-errbox" class="error-msg"></div>
+            <div class="form-links">
+                <div>Already have account?</div>
+                <a href="/users/login">Log In</a>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit-btn" id="signup-btn" value="SignUp">
+            </div>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+
+</html>

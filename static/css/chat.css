@@ -4,26 +4,19 @@
     margin: 0;
     padding: 0;
     font-family: "Jost", serif;
+    transition: .1s;
 }
 
 :root {
+    --online-color: blue;
+
     /* Dark variant */
-    --bg-color: #050505;
-    --bg1-color: #111111;
-    --bg2-color: #343434;
+    --bg-color: #111111;
+    --bg1-color: #343434;
     --fg-color: #eeeeee;
     --border-color: white;
     --top-bar-color: #58a4b0;
-
-    /* White variant */
-    /* --bg-color: #f0f0f0; */
-    /* --bg1-color: #fefae0; */
-    /* --bg2-color: #faddcd; */
-    /* --fg-color: #2f2020; */
-    /* --border-color: green; */
-    /* --top-bar-color: #8fc0a9; */
-
-    --online-color: blue;
+    --top-bar-hover-color: #13616d;
 
     /* Dark Theme example */
     --theme-chat-bg-color: linear-gradient(90deg, #ff7e5f, #feb47b);
@@ -31,16 +24,25 @@
     --theme-chat-left-color: #1B9AAA;
     --theme-chat-right-color: #216869;
     --theme-icon-color: var(--fg-color);
-    --theme-icon-bg-color: var(--bg2-color);
+    --theme-icon-bg-color: var(--bg1-color);
+}
+
+.light-mode {
+    /* White variant */
+    --bg-color: #fefae0;
+    --bg1-color: #faddcd;
+    --fg-color: #2f2020;
+    --border-color: green;
+    --top-bar-color: #8fc0a9;
+    --top-bar-hover-color: #59af87;
 
     /* White Theme example */
-    /* --theme-chat-bg-color: linear-gradient(70deg, #fceade, #b3e9c7); */
-    /* --theme-chat-title-color: #fe5f55; */
-    /* --theme-chat-left-color: #70c1b3; */
-    /* --theme-chat-right-color: #f3ffbd; */
-    /* --theme-icon-color: var(--fg-color); */
-    /* --theme-icon-bg-color: var(--bg2-color); */
-
+    --theme-chat-bg-color: linear-gradient(70deg, #fceade, #b3e9c7);
+    --theme-chat-title-color: #fe5f55;
+    --theme-chat-left-color: #70c1b3;
+    --theme-chat-right-color: #f3ffbd;
+    --theme-icon-color: var(--fg-color);
+    --theme-icon-bg-color: var(--bg1-color);
 }
 
 body {
@@ -51,7 +53,7 @@ body {
 /* Left side bar */
 .sidebar {
     user-select: none;
-    background: var(--bg1-color);
+    background: var(--bg-color);
     position: fixed;
     width: 24rem;
     padding: 1rem;
@@ -76,7 +78,7 @@ body {
 }
 
 .profile-settings:hover {
-    background: var(--bg2-color);
+    background: var(--top-bar-hover-color);
 }
 
 .profile-settings .profile {
@@ -103,7 +105,7 @@ body {
 
 /* Search bar */
 .sidebar .search {
-    background: var(--bg2-color);
+    background: var(--bg1-color);
     color: var(--fg-color);
     padding: .5rem 1rem .5rem .75rem;
     display: flex;
@@ -138,11 +140,11 @@ body {
 }
 
 .contact-info.selected {
-    background: var(--bg2-color);
+    background: var(--bg1-color);
 }
 
 .contact-info:hover {
-    background: var(--bg2-color);
+    background: var(--bg1-color);
 }
 
 /* contact item name */
