@@ -85,11 +85,11 @@ function changeTheme() {
     } else {
         document.documentElement.classList.toggle("light-mode", stv!=='dark');
         localStorage.setItem('theme', (stv!=='dark') ? 'dark' : 'light');
-        return stv
+        return (stv!=='dark') ? 'dark' : 'light'
     }
 }
 changeTheme()
 
-document.body.addEventListener('click', () => {
+document.getElementById("toggle-theme").addEventListener('click', () => {
     localStorage.setItem('theme', changeTheme());
 });

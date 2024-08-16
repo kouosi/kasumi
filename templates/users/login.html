@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
 <body>
@@ -29,6 +30,11 @@
             </div>
         </div>
     </section>
+
+    <button id="toggle-theme" class="theme-toggle" type="button" title="Toggle theme" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
     <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
 </body>
 

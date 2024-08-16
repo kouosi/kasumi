@@ -5,18 +5,18 @@
     box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
     border: none;
-    transition: .2s;
     outline: none;
 }
 
 :root {
     /* Dark variant */
-    --bg-color: #111111;
-    --bg1-color: #202020;
-    --bg2-color: #343434;
+    --bg-color: #202020;
+    --bg1-color: #292929;
+    --bg2-color: #3f3f3f;
     --fg-color: #eeeeee;
     --main-color: #01B1C9;
     --shadow-color: #000f;
+    --shadow1-color: #000f;
 }
 
 .light-mode {
@@ -26,7 +26,8 @@
     --bg2-color: #d4a276;
     --fg-color: #2f2020;
     --main-color: #3da5d9;
-    --shadow-color: #0006;
+    --shadow-color: #0005;
+    --shadow1-color: #0004;
 }
 
 body {
@@ -35,13 +36,14 @@ body {
     display: flex;
     height: 100vh;
     align-items: center;
+    transition: .12s;
     justify-content: center;
 }
 
 .auth-form {
     background: var(--bg1-color);
     border-radius: .25rem;
-    box-shadow: 0 1rem 2rem var(--shadow-color);
+    box-shadow: 0 0 2rem .25rem var(--shadow-color);
     margin: auto;
     padding:  2rem 4rem 4rem;
     width: 25rem;
@@ -67,6 +69,7 @@ body {
 .form .input-box {
     position: relative;
     width: 100%;
+    transition: .2s;
 }
 
 .form .input-box input {
@@ -127,6 +130,31 @@ body {
 
 .form .input-box .submit-btn:active {
     opacity: 0.4;
+}
+
+#toggle-theme {
+    position: fixed;
+    bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0 2rem .5rem var(--shadow1-color);
+    left: 1rem;
+    border-radius: 50%;
+    display: flex;
+    background: var(--bg2-color);
+    color: var(--text-color);
+}
+
+#toggle-theme:hover {
+    transform: rotate(360deg);
+    transition: 1.3s;
+}
+
+#toggle-theme i {
+    color: var(--fg-color);
+    width: 1rem;
+    font-size: 2rem;
+    height: 1rem;
+    border-radius: 50%;
 }
 
 @media (max-width: 500px) {

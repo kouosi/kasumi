@@ -11,12 +11,7 @@ def addUser(username, status, name):
     return user
 
 def addContact(c_username, username, last_message_sent, is_last_message_seen):
-    contact = Contact(
-        username=username,
-        current_username=c_username,
-        last_message_sent=last_message_sent,
-        is_last_message_seen=is_last_message_seen
-    )
+    contact = Contact(username=username, current_username=c_username, last_message_sent=last_message_sent, is_last_message_seen=is_last_message_seen)
     if db.session.query(Contact).filter_by(username=username).count() < 1:
         db.session.add(contact)
         db.session.commit()
