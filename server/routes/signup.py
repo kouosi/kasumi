@@ -23,10 +23,10 @@ def handleSignupAPI():
     request_password_hash = request_data["password_hash"]
 
     if User.query.filter_by(email=request_email).first():
-        return sendError("Email Address already used", 404)
+        return sendError("Email Address already used")
 
     if User.query.filter_by(username=request_username).first():
-        return sendError("Username unavailable", 404)
+        return sendError("Username unavailable")
 
     new_user:Optional[User] = addNewUser(request_name, request_email, request_username, request_password_hash)
     if new_user:
@@ -36,4 +36,4 @@ def handleSignupAPI():
         new_response.set_cookie("username", request_username)
         return new_response
 
-    return sendError("Unable to create account. Please try again", 404)
+    return sendError("Unable to create account. Please try again", 401)

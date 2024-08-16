@@ -51,6 +51,6 @@ def handleContactListAPI():
             "contact": []
         }
         return jsonify(contact_list_api_data)
-    return sendError("Unable to make this")
+    return sendError("Unable to make this", 404)
 
 

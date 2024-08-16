@@ -17,7 +17,6 @@ def handleLoginAPI():
     request_password_hash = request_data["password_hash"]
 
     user:User = User.query.filter_by(email=request_email).first()
-
     if user:
         if user.password_hash == request_password_hash:
             session_id = getNewSessionID(user)
@@ -26,7 +25,7 @@ def handleLoginAPI():
             new_response.set_cookie("username", user.username)
             return new_response
         else:
-            return sendError("Incorrect Password", 404)
+            return sendError("Incorrect Password")
 
     else:
-       return jsonify({"error": "No user found with matching email"}), 404
+       return sendError("No user found with matching email", 401)
