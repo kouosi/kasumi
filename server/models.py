@@ -62,14 +62,14 @@ class User(db.Model):
 #     edited_at = db.Column(db.DateTime, nullable=True)
 #     deleted_at = db.Column(db.DateTime, nullable=True)
 #
-# class UserSession(db.Model):
-#     session_id = db.Column(db.String(16), primary_key=True, nullable=False)
-#     username = db.Column(db.String(16), db.ForeignKey('user.username'), nullable=False)
-#     ip_address = db.Column(db.String(45), nullable=True)
-#     device_info = db.Column(db.String(255), nullable=True)
-#     created_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
-#     last_accessed_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
-#
+class UserSession(db.Model):
+    session_id = db.Column(db.String(16), primary_key=True, nullable=False)
+    username = db.Column(db.String(16), db.ForeignKey('user.username'), nullable=False)
+    ip_address = db.Column(db.String(45), nullable=True)
+    device_info = db.Column(db.String(255), nullable=True)
+    created_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
+    last_accessed_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
+
 # class BlockedUsers(db.Model):
 #     blocker_id = db.Column(db.String(16), db.ForeignKey('user.username'), primary_key=True)
 #     blocked_id = db.Column(db.String(16), db.ForeignKey('user.username'), primary_key=True)

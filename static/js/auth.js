@@ -73,23 +73,21 @@ if (reset_btn) {
     });
 }
 
-localStorage.setItem('theme','dark');
-
-function changeTheme() {
-    const pds = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const stv = localStorage.getItem('theme');
-
-    if (stv==='auto' || !stv) {
-        document.documentElement.classList.toggle("light-mode", !pds);
-        return 'auto'
+const toggle_theme_btn = document.getElementById("toggle-theme");
+function setTheme(isBtn) {
+    let current_theme = localStorage.getItem('ui.theme') || 'dark';
+    let new_theme = (current_theme === 'dark') ? 'light' : 'dark';
+    if(isBtn) {
+        document.documentElement.classList.toggle("light-mode", new_theme === 'light');
+        localStorage.setItem('ui.theme', new_theme);
     } else {
-        document.documentElement.classList.toggle("light-mode", stv!=='dark');
-        localStorage.setItem('theme', (stv!=='dark') ? 'dark' : 'light');
-        return stv
+        document.documentElement.classList.toggle("light-mode", current_theme === 'light');
     }
+    let theme_btn_icon = document.querySelector("#toggle-theme .fa-solid");
+    theme_btn_icon.classList.toggle("fa-sun", current_theme === 'light');
+    theme_btn_icon.classList.toggle("fa-moon", current_theme === 'dark');
+    toggle_theme_btn.classList.toggle("clicked", current_theme === 'dark');
 }
-changeTheme()
 
-document.body.addEventListener('click', () => {
-    localStorage.setItem('theme', changeTheme());
-});
+toggle_theme_btn.addEventListener('click', () => { setTheme(true); });
+setTheme(false); // for refresh window

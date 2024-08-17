@@ -5,11 +5,11 @@
     box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
     border: none;
-    transition: .2s;
     outline: none;
 }
 
 :root {
+    --transition-time: .2s;
     /* Dark variant */
     --bg-color: #111111;
     --bg1-color: #202020;
@@ -36,12 +36,13 @@ body {
     height: 100vh;
     align-items: center;
     justify-content: center;
+    transition: background-color var(--transition-time), color var(--transition-time);
 }
 
 .auth-form {
     background: var(--bg1-color);
     border-radius: .25rem;
-    box-shadow: 0 1rem 2rem var(--shadow-color);
+    box-shadow: 0 0 2rem .25rem var(--shadow-color);
     margin: auto;
     padding:  2rem 4rem 4rem;
     width: 25rem;
@@ -67,6 +68,7 @@ body {
 .form .input-box {
     position: relative;
     width: 100%;
+    transition: .2s;
 }
 
 .form .input-box input {
@@ -127,6 +129,31 @@ body {
 
 .form .input-box .submit-btn:active {
     opacity: 0.4;
+}
+
+#toggle-theme {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    padding: .5rem;
+    box-shadow: 0 0 2rem .5rem var(--shadow1-color);
+    transition: transform .5s, background-color var(--transition-time);
+    border-radius: 50%;
+    display: flex;
+    background: var(--bg2-color);
+    color: var(--text-color);
+}
+
+#toggle-theme.clicked {
+    transform: rotate(360deg);
+}
+
+#toggle-theme i {
+    color: var(--fg-color);
+    font-size: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
 }
 
 @media (max-width: 500px) {
