@@ -4,15 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kasumi - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
-<body style="background: #aa1111;color: #eeeeee;text-align: center;">
-    <h1>TODO: Implement home page</h1>
-    <h2>Redirecting in 3 seconds...</h2>
-    <script>
-        setTimeout(function () {window.location.href = "users/login";}, 3000);
-    </script>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Kasumi Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="https://github.com/kouosi/kasumi" target="_blank">Github</a></li>
+                <li><a href="/users/signup">Signup</a></li>
+                <li><a href="/users/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Kasumi Chat</h1>
+            <p>A place to talk, share, and create connections.</p>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://comicvine.gamespot.com/a/uploads/original/11118/111187046/6914548-1555999750575.png" alt="People chatting online">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <h1 class="feature">Features</h1>
+    <section class="features">
+        <div class="feature-item">
+            <div class="feature-icon">
+                <img src="/static/assets/chats.svg" alt="Messaging">
+            </div>
+            <h2>Real-Time Messaging</h2>
+            <p>Send and receive messages blazingly fast with our real-time chat functionality.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">
+                <img src="/static/assets/videocall.svg" alt="Calls">
+            </div>
+            <h2>Voice & Video Calls</h2>
+            <p>Stay connected with high-quality voice and video calls.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">
+                <img src="/static/assets/sharing.svg" alt="Files">
+            </div>
+            <h2>File Sharing</h2>
+            <p>Instantly share your photos, videos, and documents easily with your contacts.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">
+                <img src="/static/assets/secure_login.svg" alt="Security">
+            </div>
+            <h2>Secure & Private</h2>
+            <p>Your data is safe with our industry-leading security measures.</p>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <h2>Ready to join?</h2>
+        <p>Join out app Kasumi and connect to your friends relatives.</p>
+        <a href="/users/signup" class="cta-button-large">Sign Up Now</a>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="https://github.com/kouosi/kasumi" target="_blank">Github</a>
+                <a href="/users/signup">Signup</a>
+                <a href="/users/login">Login</a>
+            </div>
+        </div>
+        <p>&copy; 2024 Kasumi. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>
+
