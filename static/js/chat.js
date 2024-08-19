@@ -1,24 +1,56 @@
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+const username = getCookie("username")
+const session_id = getCookie("session")
+
+function deleteAllCookies() {
+    document.cookie.split(';').forEach(cookie => {
+        const eqPos = cookie.indexOf('=');
+        const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    });
+}
+
+function checkError(root_data) {
+    if (!root_data.success) {
+        alert(root_data.message);
+        if (root_data.tohome) {
+            deleteAllCookies();
+            window.location.href = "/"
+        }
+    }
+}
+
 function constructHtmlOfContactList(root_data) {
-    const profile_pic = "https://i.pinimg.com/736x/bc/b6/10/bcb6102adfa68b562a96413551e8ea86.jpg";
+    checkError(root_data);
 
     const contact_list_div = document.getElementById("contact-list");
     const main_profile_div = document.getElementById("my-profile");
 
     main_profile_div.innerHTML = `
         <div class="profile">
-            <img src="${profile_pic}" alt="profile">
+            <img src="/static/profiles/${root_data.profile_pic}" alt="profile">
         </div>
         <div class="info">
-            <div class="name">${root_data.display_name}</div>
-            <div class="status">${root_data.status}</div>
+            <div class="left">
+                <div class="name">${root_data.display_name}</div>
+                <div class="status">${root_data.status}</div>
+            </div>
+            <div id="new-message-btn" onclick="newMsg()" class="right"><i class="fa-solid fa-plus"></i></div>
         </div>
     ` /* End of template */
 
+    if (root_data.contact.length != 0)
+        contact_list_div.innerHTML = ""
     root_data.contact.forEach(function(contact) {
-        contact_list_div.innerHTML = `
-            <div class="contact-info selected ${contact.is_active ? 'online' : ''}">
+        contact_list_div.innerHTML += `
+            <div class="contact-info selected ${contact.is_active ? 'online' : ''}" onclick="getMessage('${contact.username}')">
                 <div class="profile">
-                    <img src="${profile_pic}" alt="profile">
+                    <img src="/static/profiles/${contact.profile_pic}" alt="profile">
                 </div>
                 <div class="info">
                     <div class="name">${contact.display_name}</div>
@@ -75,31 +107,41 @@ function constructHtmlOfChatSample(data) {
     })
 }
 
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-}
-
 function updateChatScroll() {
     const chatContainer = document.getElementById("chat-content");
     chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
-let username = getCookie("username")
-let session_id = getCookie("session")
+function getContactList() {
+    fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: username, session_id: session_id })
+    }).then(e => e.json()).then(e => {
+        constructHtmlOfContactList(e)
+    }).catch(e => console.error("Error fetching JSON:", e))
+}
 
-fetch('/api/contact', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username: username, session_id: session_id })
-}).then(e => e.json()).then(e => {
-    constructHtmlOfContactList(e)
-}).catch(e => console.error("Error fetching JSON:", e))
-
-function getMessage(user) {
-    fetch(`/api/chat_message/${user}/kouosi`).then(e => e.json()).then(e => {
+function getMessage(secondary_username) {
+    fetch('/api/message', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ primary_username: username, secondary_username: secondary_username,  session_id: session_id })
+    }).then(e => e.json()).then(e => {
         constructHtmlOfChatSample(e)
     }).catch(e => console.error("Error fetching JSON:", e))
     updateChatScroll();
 }
+
+function newMsg() {
+    let username1 = prompt("Enter another user username");
+    fetch('/api/newmsg', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: username, new_username: username1, session_id: session_id })
+    }).then(e => e.json())
+        .then(e => {checkError(e);getContactList()})
+        .catch(e => console.error("Error fetching JSON:", e))
+}
+
+getContactList()

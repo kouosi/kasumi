@@ -2,7 +2,7 @@ from flask import request
 from typing import Optional
 
 from server.models import User, db
-from .login import getNewSessionID
+from server.session import getNewSessionID
 from .util import sendError, sendSuccess
 from . import app_bp
 
@@ -27,6 +27,12 @@ def handleSignupAPI():
 
     if User.query.filter_by(username=request_username).first():
         return sendError("Username unavailable")
+
+    addNewUser("Inogen Limbu", "inogen.email", "inogen", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
+    addNewUser("Pawan Shrestha", "pawan.email", "pawan", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
+    addNewUser("Suyesh Nuchan", "suyesh.email", "suyesh","e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
+    addNewUser("Vipran Dahal", "vipran.email", "vipran", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
+    addNewUser("Kchan Limbu", "kouosi.email", "kouosi", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
 
     new_user:Optional[User] = addNewUser(request_name, request_email, request_username, request_password_hash)
     if new_user:

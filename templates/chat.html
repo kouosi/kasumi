@@ -49,9 +49,9 @@
                 <!--     </div> -->
                 <!-- </div> -->
                 <div class="contact-info">
-                    <div class="info" style="margin-left: 2rem;">
-                        <div class="name" style="font-size: 2rem; text-align:center">No Messages
-                            <div class="name" style="font-size: 1.3rem; text-align:center">New messages will appear here.</div>
+                    <div class="info" style="margin-left:2rem;">
+                        <div class="name" style="font-size:2rem;text-align:center">No Messages
+                            <div class="name" style="font-size:1.3rem;text-align:center">New messages will appear here.</div>
                         </div>
                     </div>
                 </div>
@@ -59,6 +59,12 @@
         </div>
 
         <!-- Our Main Chat window -->
+        <div class="mainchat" style="display:flex;justify-content:center;align-items:center;">
+            <span style="user-select:none;user-drag:none;display:flex;flex-flow:column;height:fit-content;align-items:center;font-size:2rem;">
+                <img src="/static/assets/hina.png" draggable="false" style="max-width:40%;" alt="What?">
+                <div style="text-align:center;">No Messages Selected</div>
+            </span>
+        </div>
         <div class="mainchat" id="mainchat-window">
             <!-- Chat window title -->
             <div class="chat-title online" id="chat-title"></div>

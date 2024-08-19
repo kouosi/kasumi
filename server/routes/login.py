@@ -1,12 +1,10 @@
 from server.models import User
-from flask import request, jsonify
+from flask import request
+from typing import Optional
 
+from server.session import getNewSessionID
 from . import app_bp
 from .util import sendError, sendSuccess
-
-
-def getNewSessionID(user: User) -> str:
-    return "test"
 
 @app_bp.route('/api/login', methods=['POST'])
 def handleLoginAPI():

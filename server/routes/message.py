@@ -1,5 +1,5 @@
 from . import app_bp
-from server.models import User, Message
+from server.models import User,
 from flask import request, jsonify
 
 def getUserContactList(user: User)->list[User]:
@@ -11,12 +11,12 @@ def handleMessageAPI():
     "Return chat messages of username in JSON format"
 
     request_data = request.get_json()
-    request_user_username = request_data["user_username"]
-    request_friend_username = request_data["friend_username"]
+    request_primary_username = request_data["primary_username"]
+    request_secondary_username = request_data["secondary_username"]
     # request_session_id = request_data["session_id"]
 
-    user = User.query.filter_by(username=request_user_username).first()
-    msg = Message.query.filter_by(sender_username=request_user_username).all()
+    user = User.query.filter_by(username=request_primary_username).first()
+    msg = Message.query.filter_by(sender_username=request_secondary_username).all()
 
     if msg:
         messages = [{
@@ -24,6 +24,8 @@ def handleMessageAPI():
             "message_id": message.message_id,
             "message": message.message,
         } for message in msg]
+    else:
+        messages = []
 
     if user:
         return jsonify({

@@ -19,7 +19,7 @@ if (login_btn) {
             if (data.success) {
                 window.location.href = "/";
             } else {
-                errbox.innerHTML = data.error;
+                errbox.innerHTML = data.message;
                 errbox.style.display = "block";
             }
         }).catch(error => console.error('Error:', error));
@@ -44,7 +44,7 @@ if (signup_btn) {
             if (data.success) {
                 window.location.href = "/";
             } else {
-                errbox.innerHTML = data.error;
+                errbox.innerHTML = data.message;
                 errbox.style.display = "block";
             }
         }).catch(error => console.error('Error:', error));
@@ -66,7 +66,7 @@ if (reset_btn) {
             if (data.success) {
                 // Redirect to dashboard or show success message
             } else {
-                errbox.innerHTML = data.error;
+                errbox.innerHTML = data.message;
                 errbox.style.display = "block";
             }
         }).catch(error => console.error('Error:', error));

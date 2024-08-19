@@ -1,11 +1,12 @@
-from server.routes.util import sendError
+from server.routes.util import sendError, sendSuccess
+from server.session import isSessionValid
 from . import app_bp
-from server.models import User
+from server.models import Session, User, Contact
 from flask import request, jsonify
 
-def getUserContactList(user: User)->list[User]:
+def getUserContactList(username: str)->list[Contact]:
     "Get User contact list from database"
-    pass
+    return Contact.query.filter_by(primary_username=username).all()
 
 @app_bp.route('/api/contact', methods=['POST'])
 def handleContactListAPI():
@@ -15,42 +16,40 @@ def handleContactListAPI():
     request_username = request_data["username"]
     request_session_id = request_data["session_id"]
 
-    user:User = User.query.filter_by(username=request_username).first()
+    if not request_username or not request_session_id:
+        return sendError("Either username or session id is null")
 
+    if not isSessionValid(request_username, request_session_id):
+        return sendError("Session id invalid", to_home=True)
+
+    user:User = User.query.filter_by(username=request_username).first()
     if user:
-    #     user_contacts:list[User] = getUserContactList(user)
-    #     contact_list = []
-    #
-    #     for contact in user_contacts:
-    #         contact_user:User = User.query.filter_by(username=contact.username).first()
-    #
-    #         contact_list.append({
-    #             "username": contact_user.username,
-    #             "is_active": contact_user.is_active,
-    #             "display_name": contact_user.display_name,
-    #             "last_seen_time": contact_user.last_seen_time,
-    #             "is_last_message_seen": False, # TODO
-    #             "last_message_sent": "Unknown" # TODO
-    #         })
-    #
-    #     contact_list_api_data = {
-    #         "username": user.username,
-    #         "status": user.status,
-    #         "display_name": user.display_name,
-    #         "contacts": contact_list
-    #     }
-    #     return jsonify(contact_list_api_data) # return our data according to API
-    #
-    # else:
-    #     return jsonify({"error": "User not found"}), 404
+        user_contacts:list[Contact] = getUserContactList(request_username)
+        contact_list = []
+
+        print(user_contacts)
+
+        for contact in user_contacts:
+            contact_user:User = User.query.filter_by(username=contact.secondary_username).first()
+
+            contact_list.append({
+                "username": contact_user.username,
+                "is_active": contact_user.is_active,
+                "display_name": contact_user.display_name,
+                "profile_pic": contact_user.profile_pic,
+                "last_seen_time": contact_user.last_seen_time,
+                "is_last_message_seen": False, # TODO
+                "last_message_sent": "Todo" # TODO
+            })
 
         contact_list_api_data = {
-            "username": request_username,
+            "username": user.username,
             "status": user.status,
             "display_name": user.display_name,
-            "contact": []
+            "profile_pic": user.profile_pic,
+            "contact": contact_list
         }
-        return jsonify(contact_list_api_data)
-    return sendError("Unable to make this", 404)
+        return sendSuccess(contact_list_api_data) # return our data according to API
 
-
+    else:
+        return sendError("User not found", to_home=True)
