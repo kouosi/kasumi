@@ -8,7 +8,7 @@
 }
 
 :root {
-    --online-color: blue;
+    --online-color: #58a4b0;
 
     /* Dark variant */
     --bg-color: #111111;
@@ -48,6 +48,7 @@
 body {
     color: var(--fg-color);
     overflow-x: hidden;
+    background: #000;
 }
 
 /* Left side bar */
@@ -95,9 +96,32 @@ body {
 }
 
 .profile-settings .info {
+    width: 100%;
     margin-left: .5rem;
     font-size: 1.4rem;
+    display: flex;
+    justify-content: space-between;
 }
+
+.profile-settings .right {
+    padding: .5rem;
+}
+
+.profile-settings .right i {
+    background: #3C7780;
+    aspect-ratio: 1/1;
+    text-align: center;
+    box-shadow: 0 .25rem .5rem 0 #00000044;
+    height: 1.4rem;
+    padding: .42rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
+}
+
+.profile-settings .right i:hover {
+    background: #226680;
+}
+
 .profile-settings .status {
     display: flex;
     font-size: .8rem;
@@ -201,6 +225,7 @@ body {
     margin-left: calc(24rem + 2rem);
     position: relative;
     width: calc(100% - 24rem - 2rem);
+    display: none;
     height: calc(100vh);
     /* margin-bottom: 23rem; */
 }
@@ -326,6 +351,7 @@ body {
   height: 6px;
   width: 6px;
 }
+
 *::-webkit-scrollbar-track {
   border-radius: 5px;
   background-color: #dfe9eb;
@@ -341,15 +367,14 @@ body {
 
 *::-webkit-scrollbar-thumb {
   border-radius: 12px;
-  background-color: #AAAAAA;
+  background-color: #888888;
   border: 1px solid #b8c0c2;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #2776FF;
+  background-color: #2776ff;
 }
 
 *::-webkit-scrollbar-thumb:active {
-  background-color: #2776FF;
+  background-color: #2776ff;
 }
-
