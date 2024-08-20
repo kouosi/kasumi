@@ -30,7 +30,7 @@
                 <!-- Our Search bar -->
                 <div class="search">
                     <i class="fa fa-search"></i>
-                    <input type="search" placeholder="Search...">
+                    <input type="search" autofocus placeholder="Search Users...">
                     <!--TODO: Implement -->
                 </div>
             </div>
@@ -94,6 +94,24 @@
             </div>
         </div>
     </div>
+
+    <div class="user-search-container">
+        <div class="fa-solid fa-x" id="user-search-close"></div>
+        <div class="user-search-box-container">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" id="user-search-box" placeholder="Search...">
+        </div>
+        <div class="user-search-results" id="user-search-results">
+            <!-- <div class="result-item"> -->
+            <!--     <img class="profile" src="profile.png"> -->
+            <!--     <div class="description"> -->
+            <!--         <div class="name">Name</div> -->
+            <!--         <div class="about">About</div> -->
+            <!--     </div> -->
+            <!-- </div> -->
+        </div>
+    </div>
+
     <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
 </body>
 

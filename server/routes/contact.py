@@ -1,12 +1,12 @@
 from server.routes.util import sendError, sendSuccess
 from server.session import isSessionValid
 from . import app_bp
-from server.models import Session, User, Contact
-from flask import request, jsonify
+from server.models import Session, User, Chat
+from flask import request
 
-def getUserContactList(username: str)->list[Contact]:
+def getUserContactList(username: str)->list[Chat]:
     "Get User contact list from database"
-    return Contact.query.filter_by(primary_username=username).all()
+    return Chat.query.filter_by(primary_username=username).all()
 
 @app_bp.route('/api/contact', methods=['POST'])
 def handleContactListAPI():
@@ -24,7 +24,7 @@ def handleContactListAPI():
 
     user:User = User.query.filter_by(username=request_username).first()
     if user:
-        user_contacts:list[Contact] = getUserContactList(request_username)
+        user_contacts:list[Chat] = getUserContactList(request_username)
         contact_list = []
 
         print(user_contacts)
@@ -39,7 +39,7 @@ def handleContactListAPI():
                 "profile_pic": contact_user.profile_pic,
                 "last_seen_time": contact_user.last_seen_time,
                 "is_last_message_seen": False, # TODO
-                "last_message_sent": "Todo" # TODO
+                "last_message_sent": "TODO" # TODO
             })
 
         contact_list_api_data = {

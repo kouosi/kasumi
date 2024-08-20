@@ -348,6 +348,121 @@ body {
     background: red;
 }
 
+/* Our User add search box */
+.user-search-container {
+    background: var(--bg-color);
+    width: 40%;
+    left: 50%;
+    position: fixed;
+    display: none;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    border: .2rem solid var(--top-bar-color);
+}
+
+/* User search close */
+#user-search-close {
+    position: absolute;
+    right: -1rem;
+    top: -1rem;
+    border-radius: 50%;
+    padding: .5rem;
+    aspect-ratio: 1/1;
+    width: 1rem;
+    text-align:center;
+    background-color: #fa2222;
+    cursor: pointer;
+    border: .2rem solid var(--top-bar-color);
+}
+
+#user-search-close:hover {
+    background-color: #bb0000;
+}
+
+/* Search Box */
+.user-search-box-container {
+    display: flex;
+    padding: 0 1rem;
+    background-color: var(--bg1-color);
+    margin: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+}
+
+.user-search-box-container i {
+    padding: 1rem .25rem;
+}
+
+#user-search-box {
+    width: 100%;
+    padding: .75rem .5rem;
+    border: none;
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    background: transparent;
+    color: var(--fg-color);
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+#user-search-box:focus {
+    background-color: var(--bg1-color);
+}
+
+/* Results */
+.user-search-results {
+    max-height: 300px;
+    height: min(60vh, fit-content);
+    overflow-y: auto;
+    padding: 0 1rem 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.result-item {
+    padding: .75rem 1rem;
+    cursor: pointer;
+    font-size: 16px;
+    color: #e0e0e0;
+    display: flex;
+    border-radius: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.result-item img {
+    height: 3rem;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+}
+
+.result-item .description {
+    margin-left: .75rem;
+}
+
+.result-item:hover {
+    background-color: #39404a;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+/* Add smooth fading for the result items */
+.result-item {
+    opacity: 0;
+    animation: fadeIn 0.2s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 /* Fuckin Chrome, Edge and Safari render slide bar so bad so workaround */
 *::-webkit-scrollbar {
   height: 6px;

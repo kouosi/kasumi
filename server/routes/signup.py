@@ -28,11 +28,16 @@ def handleSignupAPI():
     if User.query.filter_by(username=request_username).first():
         return sendError("Username unavailable")
 
-    addNewUser("Inogen Limbu", "inogen.email", "inogen", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
-    addNewUser("Pawan Shrestha", "pawan.email", "pawan", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
-    addNewUser("Suyesh Nuchan", "suyesh.email", "suyesh","e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
-    addNewUser("Vipran Dahal", "vipran.email", "vipran", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
-    addNewUser("Kchan Limbu", "kouosi.email", "kouosi", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
+    addNewUser("Inogen Limbu", "inogen@kouosi.com", "inogen",
+               "9ca8b7c574952845dca79b6f9eb47c9fd68a6e91df9e42e27b98cde176d3ac0b")
+    addNewUser("Pawan Shrestha", "pawan@kouosi.com", "pawan",
+               "9ca8b7c574952845dca79b6f9eb47c9fd68a6e91df9e42e27b98cde176d3ac0b")
+    addNewUser("Suyesh Nuchan", "suyesh@kouosi.com", "suyesh",
+               "9ca8b7c574952845dca79b6f9eb47c9fd68a6e91df9e42e27b98cde176d3ac0b")
+    addNewUser("Vipran Dahal", "vipran@kouosi.com", "vipran",
+               "9ca8b7c574952845dca79b6f9eb47c9fd68a6e91df9e42e27b98cde176d3ac0b")
+    addNewUser("Kchan Limbu", "kouosi@kouosi.com", "kouosi",
+               "9ca8b7c574952845dca79b6f9eb47c9fd68a6e91df9e42e27b98cde176d3ac0b")
 
     new_user:Optional[User] = addNewUser(request_name, request_email, request_username, request_password_hash)
     if new_user:
