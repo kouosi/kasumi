@@ -13,18 +13,20 @@
 <body>
     <section id="reset" class="auth-form">
         <h2>Reset Password</h2>
-        <div class="form">
+        <form id="form" class="form">
             <div class="input-box">
+                <i class="fa-regular fa-envelope"></i>
                 <input type="email" id="form-email" placeholder="Email Address" required>
             </div>
             <div class="input-box">
-                <input type="text" id="form-username" placeholder="Username" required>
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="form-username" placeholder="Username" required minlength="5">
             </div>
             <div id="form-errbox" class="error-msg"></div>
             <div class="input-box">
                 <input type="submit" class="submit-btn" id="reset-btn" value="Send Email">
             </div>
-        </div>
+        </form>
     </section>
     <button id="toggle-theme" class="theme-toggle" type="button" title="Toggle theme" aria-label="Toggle theme">
         <i class="fa-solid fa-moon"></i>

@@ -67,7 +67,10 @@ body {
 
 .form .input-box {
     position: relative;
+    display: flex;
     width: 100%;
+    background: var(--bg2-color);
+    border-radius: .25rem;
     transition: .2s;
 }
 
@@ -75,9 +78,19 @@ body {
     transition: .2s;
     position: relative;
     width: 100%;
-    background: var(--bg2-color);
-    padding: 10px 7.5px;
-    border-radius: 4px;
+    background: transparent;
+    padding: .75rem .75rem .5rem 0;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.form .input-box i {
+    transition: .2s;
+    position: relative;
+    width: max-content;
+    background: transparent;
+    padding: .78rem .5rem;
     color: var(--text-color);
     font-weight: 500;
     font-size: 1em;
@@ -119,6 +132,7 @@ body {
     color: var(--bg-color);
     cursor: pointer;
     font-size: 1.35rem;
+    border-radius: .25rem;
     font-weight: 600;
     letter-spacing: 0.06rem;
 }
@@ -163,4 +177,13 @@ body {
         padding: 3rem;
         width: 100%;
     }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px var(--bg2-color) inset; /* Persistent background */
+    -webkit-text-fill-color: var(--fg-color) !important;
+    /* transition: background-color 5000s ease-in-out 0s; */
 }

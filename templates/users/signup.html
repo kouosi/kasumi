@@ -13,18 +13,24 @@
 <body>
     <section id="signup" class="auth-form">
         <h2>Sign UP</h2>
-        <div class="form">
+        <form id="form" class="form">
             <div class="input-box">
-                <input type="text" id="form-name" placeholder="Full Name" required>
+                <!-- <i class="fa-solid fa-person"></i> -->
+                <i class="fa-regular fa-address-book"></i>
+                <input type="text" id="form-name" placeholder="Full Name" required minlength="5">
             </div>
             <div class="input-box">
-                <input type="text" id="form-username" placeholder="Username" required>
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="form-username" placeholder="Username" required minlength="5">
             </div>
             <div class="input-box">
+                <i class="fa-regular fa-envelope"></i>
                 <input type="email" id="form-email" placeholder="Email Address" required>
             </div>
             <div class="input-box">
-                <input type="password" id="form-password" placeholder="Password" required>
+                <!-- <i class="fa-solid fa-lock"></i> -->
+                <i class="fa-solid fa-key"></i>
+                <input type="password" id="form-password" placeholder="Password" required minlength="8">
             </div>
             <div id="form-errbox" class="error-msg"></div>
             <div class="form-links">
@@ -34,7 +40,7 @@
             <div class="input-box">
                 <input type="submit" class="submit-btn" id="signup-btn" value="SignUp">
             </div>
-        </div>
+        </form>
     </section>
     <button id="toggle-theme" class="theme-toggle" type="button" title="Toggle theme" aria-label="Toggle theme">
         <i class="fa-solid fa-moon"></i>
