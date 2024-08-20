@@ -29,15 +29,15 @@ def handleSignupAPI():
         return sendError("Username unavailable")
 
     addNewUser("Inogen Limbu", "inogen@kouosi.com", "inogen",
-               "9ca8b7c574952845dca79b6f9eb47c9fd68a6e91df9e42e27b98cde176d3ac0b")
+               "e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a") # Password
     addNewUser("Pawan Shrestha", "pawan@kouosi.com", "pawan",
-               "9ca8b7c574952845dca79b6f9eb47c9fd68a6e91df9e42e27b98cde176d3ac0b")
+               "e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a")
     addNewUser("Suyesh Nuchan", "suyesh@kouosi.com", "suyesh",
-               "9ca8b7c574952845dca79b6f9eb47c9fd68a6e91df9e42e27b98cde176d3ac0b")
+               "e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a")
     addNewUser("Vipran Dahal", "vipran@kouosi.com", "vipran",
-               "9ca8b7c574952845dca79b6f9eb47c9fd68a6e91df9e42e27b98cde176d3ac0b")
+               "e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a")
     addNewUser("Kchan Limbu", "kouosi@kouosi.com", "kouosi",
-               "9ca8b7c574952845dca79b6f9eb47c9fd68a6e91df9e42e27b98cde176d3ac0b")
+               "e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a")
 
     new_user:Optional[User] = addNewUser(request_name, request_email, request_username, request_password_hash)
     if new_user:

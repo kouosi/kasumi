@@ -6,7 +6,23 @@ from flask import request
 
 def getUserContactList(username: str)->list[Chat]:
     "Get User contact list from database"
-    return Chat.query.filter_by(primary_username=username).all()
+    list1:list[Chat] = Chat.query.filter_by(primary_username=username).all()
+    list2:list[Chat] = Chat.query.filter_by(secondary_username=username).all()
+    print(list1)
+    print(list2)
+    adjusted_list2 = []
+    for chat in list2:
+        if (chat.primary_username == chat.secondary_username):
+            continue
+        adjusted_list2.append(Chat(
+            chat_id= chat.chat_id,
+            primary_username= chat.secondary_username,
+            secondary_username= chat.primary_username,
+            created_at= chat.created_at.isoformat(),
+            last_message_sent= chat.last_message_sent,
+            is_last_message_seen= chat.is_last_message_seen
+        ))
+    return list(list1 + adjusted_list2)
 
 @app_bp.route('/api/contact', methods=['POST'])
 def handleContactListAPI():
