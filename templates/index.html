@@ -13,9 +13,12 @@
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <img src="logo.png" alt="Kasumi Logo">
+            <img src="/static/assets/hina.png" draggable="false" alt="Kasumi Logo">
         </div>
         <nav>
+            <div class="dropdown-toggle">
+                <span>&#9776;</span> <!-- Hamburger icon -->
+            </div>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
@@ -31,10 +34,11 @@
         <div class="hero-content">
             <h1>Welcome to Kasumi Chat</h1>
             <p>A place to talk, share, and create connections.</p>
-            <a href="#" class="cta-button">Get Started</a>
+            <a href="/users/signup" class="cta-button">Get Started</a>
         </div>
         <div class="hero-image">
-            <img src="https://comicvine.gamespot.com/a/uploads/original/11118/111187046/6914548-1555999750575.png" alt="People chatting online">
+            <img src="https://comicvine.gamespot.com/a/uploads/original/11118/111187046/6914548-1555999750575.png"
+                alt="People chatting online">
         </div>
     </section>
 
@@ -91,7 +95,20 @@
         </div>
         <p>&copy; 2024 Kasumi. All rights reserved.</p>
     </footer>
+    <script>
+        document.querySelector('.dropdown-toggle').addEventListener('click', function () {
+            document.querySelector('nav').classList.toggle('open');
+        });
+        document.addEventListener('click', function (event) {
+            const nav = document.querySelector('nav');
+            const toggle = document.querySelector('.dropdown-toggle');
+
+            // Check if the click is outside the navigation menu and the toggle button
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+                nav.classList.remove('open');
+            }
+        });
+    </script>
 </body>
 
 </html>
-

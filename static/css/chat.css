@@ -11,8 +11,9 @@
     --online-color: #58a4b0;
 
     /* Dark variant */
-    --bg-color: #111111;
-    --bg1-color: #343434;
+    --empty-color: #000;
+    --bg-color: #161311;
+    --bg1-color: #363232;
     --fg-color: #eeeeee;
     --border-color: white;
     --top-bar-color: #58a4b0;
@@ -29,8 +30,9 @@
 
 .light-mode {
     /* White variant */
-    --bg-color: #fefae0;
-    --bg1-color: #faddcd;
+    --empty-color: #fffafa;
+    --bg-color: #fdf5cf;
+    --bg1-color: #fdd0c0;
     --fg-color: #2f2020;
     --border-color: green;
     --top-bar-color: #8fc0a9;
@@ -48,7 +50,7 @@
 body {
     color: var(--fg-color);
     overflow-x: hidden;
-    background: #000;
+    background: var(--empty-color);
 }
 
 /* Left side bar */
